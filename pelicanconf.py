@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
 
-AUTHOR = 'cmstemplate user'
-SITENAME = 'cmstemplate blog'
+AUTHOR = '40823104'
+SITENAME = 'cd2021-40823104 blog'
 # 不要用文章所在目錄作為類別
 USE_FOLDER_AS_CATEGORY = False
 
