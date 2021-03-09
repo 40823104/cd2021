@@ -187,8 +187,15 @@ g.es("admin pelican 近端執行完畢")
 
 </t>
 <t tx="yen.20170108171733.5"></t>
-<t tx="yen.20170108171733.71"></t>
-<t tx="yen.20170108171733.81"></t>
+<t tx="yen.20170108171733.71">
+    </t>
+<t tx="yen.20170108171733.81">2021/02/25
+---
+建立網站,設定leo
+
+github:https://github.com/40823104/cd2021
+
+網站:https://40823104.github.io/cd2021/content/index.html</t>
 <t tx="yen.20170108171733.83">sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout localhost.key -out localhost.crt
 
 </t>
