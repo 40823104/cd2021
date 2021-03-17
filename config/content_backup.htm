@@ -49,7 +49,8 @@
 <p>按browse選擇剛才的ppk檔案</p>
 <p><img alt="" height="538" src="/images/螢幕擷取畫面 2021-03-11 153834.png" width="598"/></p>
 <p>然後回到session按下save</p>
-<p>接著到github的setting中增加ssh key即成功</p><h2>site404</h2>
+<p>接著到github的setting中增加ssh key即成功</p>
+<h2>site404</h2>
 <p>打開github倉儲設定</p>
 <p><img alt="" height="196" src="/images/螢幕擷取畫面 2021-03-04 133155.png" width="400"/></p>
 <p>往下滑找到github page裡面的source</p>
@@ -73,7 +74,28 @@
 <p>儲存leo更改內容(push)</p>
 <p></p>
 <h1>Stage1</h1>
-<h6>小組倉儲:<a href="https://github.com/40823101/cd2021-ag4">https://github.com/40823101/cd2021-ag4</a></h6>
-<h6>組員網站:<a href="https://40823101.github.io/cd2021/content/index.html">https://40823101.github.io/cd2021/content/index.html</a></h6>
-<p></p><h2>W2</h2>
-<p>題目:挖土機手臂</p>
+<h6><span>題目:挖土機手臂</span></h6>
+<p>小組網站:<a href="https://40823104.github.io/stage1-ag4/content/index.html">https://40823104.github.io/stage1-ag4/content/index.html</a></p>
+<p>組員網站:<a href="https://40823101.github.io/cd2021/content/index.html">https://40823101.github.io/cd2021/content/index.html</a></p>
+<h2>W2</h2>
+<p>今天確認主題為挖土機手臂結構，</p>
+<p>動機為想<span>研究挖土機手臂構造及作動原理，</span></p>
+<p>本周從AUTOCAD開始繪製2D圖檔，再利用SOLIDWORK繪製3D圖，</p>
+<p>預計下周用<span>CoppeliaSim模擬測試及修改。</span></p>
+<p><span>參考資料:</span></p>
+<p><a href="https://kknews.cc/zh-tw/news/nbx58m5.html">https://kknews.cc/zh-tw/news/nbx58m5.html<img alt="" height="502" src="https://40823104.github.io/stage1-ag4/images/%E6%8C%96%E5%9C%9F%E6%A9%9F%E6%89%8B%E8%87%82%E7%B5%90%E6%A7%8B-2.jpg" width="819"/></a></p>
+<h2>W3</h2>
+<p><span>將挖土機手臂的組合圖stl檔以coppeliasim作動測試</span></p>
+<p><span> </span></p>
+<p><span>測試影片1:將組合件建立從屬關係,並在三個主動軸上添加虛擬軸,結果失敗,各零件四散</span></p>
+<p><span>結果1:失敗,各零件四散,疑似從屬關係不順</span></p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/cgklDZsHStM" width="560"></iframe></p>
+<p></p>
+<p>測試影片2:重新建立組合件之從屬關係,並在各軸上增加虛擬軸以加強物件之間的約束</p>
+<p>結果2:<span>失敗,各零件四散,虛擬軸似乎和物件拘束關係無關</span></p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/RHqdtkJaeM0" width="560"></iframe></p>
+<p><span></span></p>
+<p><span>測試影片3:以手動方式轉動虛擬軸</span></p>
+<p><span>結果3:失敗,<span>疑似因為我們的主題挖土機手臂需要多個零件互相約束,但coppeliasim只能以一個主動件配合多個從動件,無法讓一個零件既是主動件也是從動件,所以用程式作動時會出現零件約束不足,因此無法順利作動並且零件四散</span></span></p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/M_y4J3onAd4" width="560"></iframe></p>
+<p><span><span></span></span></p>
