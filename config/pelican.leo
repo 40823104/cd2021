@@ -57,6 +57,7 @@
 <v t="leo.20180115115910.1"><vh>2021</vh>
 <v t="leo.20180423103639.1"><vh>2021 CD 課程</vh>
 <v t="leo.20210225161509.1"><vh>@clean 20210225.md</vh></v>
+<v t="leo.20210513161804.1"><vh>@clean 20210513.md</vh></v>
 </v>
 </v>
 </v>
@@ -90,7 +91,7 @@ g.es("admin pelican Github 執行完畢")
 <t tx="leo.20180423103639.1"></t>
 <t tx="leo.20210225161509.1">@language md
 ---
-Title: cd2021
+Title: W1
 Date: 2021-02-25 17:00
 Category: Misc
 Tags: cd2021
@@ -98,9 +99,24 @@ Slug: 2021
 Author: 40823104
 ---
 
-2021協同產品設計實習
+2021協同產品設計實習第一周
 
-&lt;!-- PELICAN_END_SUMMARY --&gt;</t>
+&lt;!-- PELICAN_END_SUMMARY --&gt;
+</t>
+<t tx="leo.20210513161804.1">@language md
+---
+Title: W12
+Date: 2021-05-13 16:05
+Tags: cd2021
+Slug: 2021
+Author: 40823104
+---
+
+2021協同產品設計實習第十二周
+繪製機械停車塔立體圖
+
+&lt;!-- PELICAN_END_SUMMARY --&gt;
+</t>
 <t tx="yen.20170108171605.1"></t>
 <t tx="yen.20170108171605.2">QTreeWidget {
     /* These apply to the selected item, but not to editing items.*/
