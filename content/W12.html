@@ -1,179 +1,139 @@
-<h1>About</h1>
-<p>This is <a href="https://github.com/mdecourse/cmstemplate">https://github.com/mdecourse/cmstemplate</a></p>
-<p>目前的 cmsimde 在編輯器下方新增一個 csave 按鈕, 意即 collabrative save, 當動態網際管理系統在多人同時維護登入維護網頁內容時, 編輯各頁面時段, 該頁面可能已經改版, 因此使用 csave 按鈕存檔時, 會導入當下最新的該頁面內容, 並試圖與編輯中的頁面內容進行合併.</p>
-<p>使用 csave 按鈕存檔無法刪除頁面資料.</p>
-<p>使用 Edit All 模式, 無法使用 csave 按鈕（尚未測試).</p>
-<h1>W1</h1>
-<p>創建網站:</p>
-<p>到<a href="https://github.com/mdecourse/cmstemplate">https://github.com/mdecourse/cmstemplate</a></p>
-<p>按下<img alt="" height="31" src="/images/螢幕擷取畫面 2021-02-25 191930.png" width="120"/></p>
-<p>創建新倉儲 cd2021</p>
-<p>打開小黑窗</p>
-<p>cd tmp</p>
-<p>git clone --recurse-submodules 倉儲網址.git</p>
-<p></p>
-<p>打開網站:</p>
-<p>cd tmp/cd2021/cmsimde</p>
-<p>python wsgi.py</p>
-<p>在網址欄打上localhost:9443</p>
-<p></p>
-<p>編輯網站後:</p>
-<p>按下右上角的generate_pages</p>
-<p><span>cd tmp/cd2021</span></p>
-<p><span>git add .</span></p>
-<p><span>git commit -m"名字"</span></p>
-<p>git push</p>
-<h2>ssh</h2>
-<p>開啟小黑窗輸入</p>
-<p>sh</p>
-<p>ssh-keygen -t rsa -b 4096 -C "40823104"  (" "內為學號)</p>
-<p>在以下路徑(/y/home/.ssh/id_rsa)生成鑰匙及檔案</p>
-<p>設定密碼(不須密碼直接enter)</p>
-<p>產生成功</p>
-<p><img alt="" height="498" src="/images/螢幕擷取畫面 2021-03-11 150543.png" width="600"/></p>
-<p><img alt="" height="212" src="/images/螢幕擷取畫面 2021-03-11 150920.png" width="600"/></p>
-<p>在小白窗開啟<img alt="" height="23" src="/images/螢幕擷取畫面 2021-03-11 151258.png" width="95"/>增加set GIT_SSH=%Disk%:\putty\plink.exe然後儲存</p>
-<p><img alt="" height="778" src="/images/螢幕擷取畫面 2021-03-11 151502.png" width="600"/></p>
-<p>開啟puttygen.exe 按下load</p>
-<p><img alt="" height="544" src="/images/螢幕擷取畫面 2021-03-11 152000.png" width="600"/></p>
-<p>選擇剛才建的id_rsa</p>
-<p><img alt="" height="381" src="/images/螢幕擷取畫面 2021-03-11 152250.png" width="600"/></p>
-<p>按下safe public key</p>
-<p><img alt="" height="546" src="/images/螢幕擷取畫面 2021-03-11 152301.png" width="600"/></p>
-<p>存成檔案 學號.ppk</p>
-<p>開啟檔案putty.exe</p>
-<p>在host name中輸入github.com</p>
-<p>選擇下方github.com點選load</p>
-<p><img alt="" height="537" src="/images/螢幕擷取畫面 2021-03-11 153825.png" width="598"/></p>
-<p>旁邊分支線中選擇ssh下面的auth</p>
-<p>按browse選擇剛才的ppk檔案</p>
-<p><img alt="" height="538" src="/images/螢幕擷取畫面 2021-03-11 153834.png" width="598"/></p>
-<p>然後回到session按下save</p>
-<p>接著到github的setting中增加ssh key即成功</p>
-<h2>site404</h2>
-<p>打開github倉儲設定</p>
-<p><img alt="" height="196" src="/images/螢幕擷取畫面 2021-03-04 133155.png" width="400"/></p>
-<p>往下滑找到github page裡面的source</p>
-<p>none改成main或master,資料夾為root,然後save</p>
-<p><img alt="" height="289" src="/images/螢幕擷取畫面 2021-03-04 133206.png" width="400"/></p>
-<p></p>
-<h2>leo</h2>
-<p>小黑窗輸入leo即可開啟leo視窗</p>
-<p></p>
-<p><img alt="" height="535" src="/images/螢幕擷取畫面 2021-02-25 202637.png" width="1000"/></p>
-<p>更改作者名稱及網站名</p>
-<p><img alt="" height="536" src="/images/螢幕擷取畫面 2021-03-04 135048.png" width="1000"/></p>
-<p>更改blog網址</p>
-<p></p>
-<p><img alt="" height="538" src="/images/螢幕擷取畫面 2021-03-04 140626.png" width="1000"/></p>
-<p>修改網誌內容</p>
-<p></p>
-<p><img alt="" height="536" src="/images/螢幕擷取畫面 2021-02-25 202658.png" width="1000"/></p>
-<p><img alt="" height="534" src="/images/螢幕擷取畫面 2021-02-25 202706.png" width="1000"/></p>
-<p><img alt="" height="526" src="/images/螢幕擷取畫面 2021-02-25 202717.png" width="1000"/></p>
-<p>儲存leo更改內容(push)</p>
-<p></p>
-<h1>Stage1</h1>
-<h6><span>題目:挖土機手臂</span></h6>
-<p>小組網站:<a href="https://40823104.github.io/stage1-ag4/content/index.html">https://40823104.github.io/stage1-ag4/content/index.html</a></p>
-<p>組員網站:<a href="https://40823101.github.io/cd2021/content/index.html">https://40823101.github.io/cd2021/content/index.html</a></p>
-<h2>W2</h2>
-<p>今天確認主題為挖土機手臂結構，</p>
-<p>動機為想<span>研究挖土機手臂構造及作動原理，</span></p>
-<p>本周從AUTOCAD開始繪製2D圖檔，再利用SOLIDWORK繪製3D圖，</p>
-<p>預計下周用<span>CoppeliaSim模擬測試及修改。</span></p>
-<p><span>參考資料:</span></p>
-<p><a href="https://kknews.cc/zh-tw/news/nbx58m5.html">https://kknews.cc/zh-tw/news/nbx58m5.html<img alt="" height="502" src="https://40823104.github.io/stage1-ag4/images/%E6%8C%96%E5%9C%9F%E6%A9%9F%E6%89%8B%E8%87%82%E7%B5%90%E6%A7%8B-2.jpg" width="819"/></a></p>
-<p>立體圖繪製影片:</p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/880LxwZ-7gQ" width="560"></iframe></p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/fDI_a1S_qCQ" width="560"></iframe></p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/v1_rF4y0ylE" width="560"></iframe></p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/sSqAq_B_s_4" width="560"></iframe></p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/ZcIzJ3DKmAc" width="560"></iframe></p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/pF-QB2kQOJU" width="560"></iframe></p>
-<p>立體組合圖影片:</p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/onhx5q82ryg" width="560"></iframe></p>
-<p></p><h2>W3</h2>
-<p><span>將挖土機手臂的組合圖stl檔以coppeliasim作動測試</span></p>
-<p><span> (發現soildwork的組合圖轉為stl檔後會自動拆開,變成一個個零件stl檔,後來改成匯出成step檔後放入inventor,再轉成stl檔即可為完整的組合圖)</span></p>
-<p><span>測試影片1:將組合件建立從屬關係,並在三個主動軸上添加虛擬軸,結果失敗,各零件四散</span></p>
-<p><span>結果1:失敗,各零件四散,疑似從屬關係不順</span></p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/cgklDZsHStM" width="560"></iframe></p>
-<p></p>
-<p>測試影片2:重新建立組合件之從屬關係,並在各軸上增加虛擬軸以加強物件之間的約束</p>
-<p>結果2:<span>失敗,各零件四散,虛擬軸似乎和物件拘束關係無關</span></p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/RHqdtkJaeM0" width="560"></iframe></p>
-<p><span></span></p>
-<p><span>測試影片3:以手動方式轉動虛擬軸</span></p>
-<p><span>結果3:失敗,<span>疑似因為我們的主題挖土機手臂需要多個零件互相約束,但coppeliasim只能以一個主動件配合多個從動件,無法讓一個零件既是主動件也是從動件,所以用程式作動時會出現零件約束不足,因此無法順利作動並且零件四散</span></span></p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/M_y4J3onAd4" width="560"></iframe></p>
-<h2>W4</h2>
-<p>上台報告</p>
-<p>PDF:<a href="https://40823104.github.io/stage1-ag4/downloads/%E5%8D%94%E5%90%8C%E7%94%A2%E5%93%81%E8%A8%AD%E8%A8%88%E8%88%87%E5%AF%A6%E7%BF%92.pdf">https://40823104.github.io/stage1-ag4/downloads/%E5%8D%94%E5%90%8C%E7%94%A2%E5%93%81%E8%A8%AD%E8%A8%88%E8%88%87%E5%AF%A6%E7%BF%92.pdf</a></p>
-<p>reveal:<a href="https://40823104.github.io/stage1-ag4/reveal/index.html">https://40823104.github.io/stage1-ag4/reveal/index.html</a></p>
-<p>影片:</p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/eah5fePid2A" title="YouTube video player" width="560"></iframe></p>
-<p>各組影片名稱更名及長度</p>
-<p><a href="https://drive.google.com/drive/folders/1n4L-tWhAaJEzP7O9FdyERihYsy7aEJ07?usp=sharing">https://drive.google.com/drive/folders/1n4L-tWhAaJEzP7O9FdyERihYsy7aEJ07?usp=sharing</a></p>
-<p><img alt="" height="665" src="/images/螢幕擷取畫面 2021-03-24 194824.png" width="357"/></p>
-<h1>Stage2</h1>
-<p>題目: 腳踏車</p>
-<p>組員網站:林晏鈴:<a href="https://40823101.github.io/cd2021/content/index.html">https://40823101.github.io/cd2021/content/index.html</a></p>
-<p>             林郁凱:<a href="https://40823119.github.io/cd2021/content/index.html">https://40823119.github.io/cd2021/content/index.html</a></p>
-<p>             蘇鷺瑋:<a href="https://40823150.github.io/cd2021/content/index.html">https://40823150.github.io/cd2021/content/index.html</a></p>
-<p>小組網站:<a href="https://40823101.github.io/stage2-ag4/content/index.html">https://40823101.github.io/stage2-ag4/content/index.html</a></p>
-<p></p><h2>W5</h2>
-<p>暫定題目:腳踏車</p>
-<p><img alt="" height="263" src="/images/螢幕擷取畫面 2021-04-07 195451.png" width="400"/></p><h2>W6</h2>
-<p>繪製2D圖抓大概尺寸</p>
-<p>檔案連結:<a href="https://drive.google.com/drive/folders/19oOTUK06qoGMvMf67qVqm9LB-Mh0Vkea?usp=sharing">https://drive.google.com/drive/folders/19oOTUK06qoGMvMf67qVqm9LB-Mh0Vkea?usp=sharing</a></p>
-<p>因為用<span>CoppeliaSim模擬鍊條太過費時,因此將鍊條拿掉</span></p>
-<p><span>直接以齒輪傳動</span></p>
-<p><img alt="" height="206" src="/images/螢幕擷取畫面 2021-04-10 150037.png" width="400"/></p>
-<p><img alt="" height="383" src="/images/螢幕擷取畫面 2021-04-10 150044.png" width="400"/></p>
-<p><img alt="" height="177" src="/images/螢幕擷取畫面 2021-04-10 150058.png" width="400"/><img alt="" height="244" src="/images/螢幕擷取畫面 2021-04-10 150051.png" width="400"/></p>
-<p>參考腳踏車:</p>
-<p><img alt="" height="331" src="/images/螢幕擷取畫面 2021-04-08 162545.png" width="400"/></p>
-<p></p><h2>W7</h2>
-<p>繪製立體圖並組合,交給負責<span>CoppeliaSim的組員</span></p>
-<p><span>檔案連結:<a href="https://drive.google.com/drive/folders/19oOTUK06qoGMvMf67qVqm9LB-Mh0Vkea?usp=sharing">https://drive.google.com/drive/folders/19oOTUK06qoGMvMf67qVqm9LB-Mh0Vkea?usp=sharing</a></span></p>
-<p><span><img alt="" height="314" src="/images/螢幕擷取畫面 2021-04-10 234537.png" width="500"/></span></p>
-<p><span><img alt="" height="414" src="/images/螢幕擷取畫面 2021-04-10 234542.png" width="500"/></span></p>
-<p><span>影片:</span></p>
-<p><span><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/PPJUAVmybvE" title="YouTube video player" width="560"></iframe></span></p>
-<h2>W8</h2>
-<p>利用coppliasim製作模擬</p>
-<p>1.第一次模擬發現輪子和齒輪會直接掉落，經過從以前學長的影片和講解我們發現是基準面的問題<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/9YPMFW9FywU" title="YouTube video player" width="560"></iframe></p>
-<p>2.所以我們增加了基準面，就有了第二個模擬</p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/wL2jF5kr_UU" title="YouTube video player" width="560"></iframe></p>
-<p>3.，將踏板個後齒輪和後輪連結在一起，最後我們本來要進行實體碰撞，但是，發現我們進行實體碰撞之後齒輪方面會卡齒，我們更換了間隔更大的齒輪發現無法解決問題，導致自行車會散架，我們也無從到學長的影片和講解中得到解釋，所以我們的實體實驗失敗了<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/WRv12D-hjxo" title="YouTube video player" width="560"></iframe></p>
-<p>心得:</p>
-<p><span>在這次大家的合作中，我們都能發揮處各位的特長，取其精華，同時組內氛圍良好，沒有出現爭吵，大家都按照自己應該做的事情好好完成，雖然結果沒有到達自己滿意的程度，但是我們都還是很滿足於過程，大家的討論和配合，非常體現出小組合作的重要性與，也能感受到，小組合作在自己不擅長的地方有其他組員的彌補變得更加方便和簡單，大家也能發揮自己擅長的地方去配合，這是一次很好的經歷和磨練！！</span></p>
-<h2>W9</h2>
-<p>上台報告</p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/p5c5icAxclg" title="YouTube video player" width="560"></iframe></p><h1>Stage3</h1>
-<p>題目:機械停車塔</p>
-<p>組員:</p>
-<p><a href="https://github.com/40823101">40823101</a> <a href="https://github.com/40823102">40823102</a> <a href="https://github.com/40823104">40823104</a> <a href="https://github.com/40823106">40823106</a> <a href="https://github.com/40823151">40823151</a> <a href="https://github.com/40623121">40623121</a> <a href="https://github.com/40871106">40871106</a></p>
-<p>小組網站:<a href="https://40823104.github.io/stage3-ag2/content/index.html">https://40823104.github.io/stage3-ag2/content/index.html</a></p>
-<h2>先前負責項目</h2>
-<p>Stage1-ag4:(<span>CoppeliaSim部分)</span><span>提出構想並參與討論,零組件轉檔,機電系統模擬與控制,參與專案報告編寫</span></p>
-<p><span>Stage2-ag4:(繪圖部分)<span>提出構想並參與討論,文獻搜尋,參數式零組件繪圖,零組件轉檔,參與專案報告編寫</span></span></p><h2>W10</h2>
-<p>建造分組同步倉儲及網頁</p>
-<p>創建分組倉儲:Stage3-ag2</p>
-<p>小黑窗輸入:git clone --recurse-submodules <a href="https://github.com/學號/倉儲名稱.git">https://github.com/學號/倉儲名稱.git</a></p>
-<p>進入倉儲資料夾的.git/config增加組員資訊及改成ssh</p>
-<p><img alt="" height="401" src="/images/螢幕擷取畫面 2021-05-06 161420.png" width="400"/></p>
-<p><img alt="" height="575" src="/images/1620288923454_0.jpg" width="400"/></p>
-<p>之後每次開啟小組網頁編輯前要先git pull(抓下其他人的更新內容)</p>
-<p>更新完之後先正常的git push一次(這是更新自己的倉儲)</p>
-<p>再git push 組員學號(每一個人都要更新到,不然會亂掉)</p>
-<h2>W11</h2>
-<p>討論小組偕同主題及協助組員完成小組網頁</p>
-<p>最後討論出的主題為機械停車塔</p>
-<p><img alt="" height="210" src="/images/螢幕擷取畫面 2021-05-12 210610.png" width="300"/></p>
-<p><img alt="" height="191" src="/images/螢幕擷取畫面 2021-05-12 210604.png" width="300"/></p>
-<h2>W12</h2>
+<!DOCTYPE html><html>
+        <head>
+        <title>CMSiMDE</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700,900" rel="stylesheet">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/magnific-popup.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/jquery-ui.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/owl.theme.default.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap-datepicker.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/flaticon/font/flaticon.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/aos.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/style.css">
+        <link rel="shortcut icon" href="./../cmsimde/static/favicons.png">
+        
+        <style type='text/css'>
+            .site-section {
+            background-color: #FFFF;
+            padding: 40px 40px;
+            }
+            body > div > div.dropdown.open {
+                display: block;
+            }
+        </style>
+    
+        <!-- <script src="./../cmsimde/static/jquery.js"></script> -->
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+        <script src="../cmsimde/static/chimper/js/jquery-3.3.1.min.js"></script>
+        <link rel="stylesheet" href="./../cmsimde/static/tipuesearch/css/normalize.min.css">
+        <script src="./../cmsimde/static/tipuesearch/tipuesearch_set.js"></script>
+        <script src="tipuesearch_content.js"></script>
+        <link rel="stylesheet" href="./../cmsimde/static/tipuesearch/css/tipuesearch.css">
+        <script src="./../cmsimde/static/tipuesearch/tipuesearch.js"></script>
+        <script>
+            /* original tipuesearch
+            $(document).ready(function() {
+                 $('#tipue_search_input').tipuesearch();
+            });
+            */
+            // customed doSearch
+            function doSearch() {
+                $('#tipue_search_input').tipuesearch({
+                    newWindow: true, 
+                    minimumLength: 2,
+                    wholeWords: false, // for search 中文
+                });
+            }
+            $(document).ready(doSearch);
+        </script>
+        
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushBash.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushDiff.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushHaxe.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushXml.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushLua.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushDart.js"></script>
+<link type="text/css" rel="stylesheet" href="./../cmsimde/static/syntaxhighlighter/css/shCoreDefault.css"/>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
+<!-- 暫時不用
+<script src="./../cmsimde/static/fengari-web.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/Cango-13v08-min.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/CangoAxes-4v01-min.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/gearUtils-05.js"></script>
+-->
+<!-- for Brython 暫時不用
+<script src="https://scrum-3.github.io/web/brython/brython.js"></script>
+<script src="https://scrum-3.github.io/web/brython/brython_stdlib.js"></script>
+-->
+<style>
+img.add_border {
+    border: 3px solid blue;
+}
+</style>
+
+</head>
+<body>
+<div class='container'><nav>
+        
+    <div class="site-wrap">
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+    
+            <header class="site-navbar py-4 bg-white" role="banner">
+              <div class="container-fluid">
+                <div class="row align-items-center">
+                <h1>cd2021-40823104</h1>
+                <div class="pl-4">
+                    <form>
+                    <input type="text" placeholder="Search" name="q" id="tipue_search_input" pattern=".{2,}" title="At least 2 characters" required>
+                    </form>
+                </div>
+                  <!-- <div class="col-11 col-xl-2">
+                    <h1 class="mb-0 site-logo"><a href="index.html" class="text-black h2 mb-0">cd2021-40823104</a></h1> 
+                  </div>
+                  -->
+                  <div class="col-12 col-md-10 d-none d-xl-block">
+                    <nav class="site-navigation position-relative text-right" role="navigation">
+    <ul class='site-menu js-clone-nav mr-auto d-none d-lg-block'>
+                        <li class="active has-children"><a href="index.html">Home</a>
+                        <ul class="dropdown">
+                            <li><a href="sitemap.html">Site Map</a></li>
+                            <li><a href="./../reveal/index.html">reveal</a></li>
+                            <li><a href="./../blog/index.html">blog</a></li>
+                        </ul>
+                      </li>
+                     <li><a href='About.html'>About</a><li class='has-children'><a href='W1.html'>W1</a><ul class='dropdown'><li><a href='ssh.html'>ssh</a><li><a href='site404.html'>site404</a><li><a href='leo.html'>leo</a></li></ul><li class='has-children'><a href='Stage1.html'>Stage1</a><ul class='dropdown'><li><a href='W2.html'>W2</a><li><a href='W3.html'>W3</a><li><a href='W4.html'>W4</a></li></ul><li class='has-children'><a href='Stage2.html'>Stage2</a><ul class='dropdown'><li><a href='W5.html'>W5</a><li><a href='W6.html'>W6</a><li><a href='W7.html'>W7</a><li><a href='W8.html'>W8</a><li><a href='W9.html'>W9</a></li></ul><li class='has-children'><a href='Stage3.html'>Stage3</a><ul class='dropdown'><li><a href='先前負責項目.html'>先前負責項目</a><li><a href='W10.html'>W10</a><li><a href='W11.html'>W11</a><li><a href='W12.html'>W12</a></li>
+                      </ul>
+                </nav>
+              </div>
+              <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+              </div>
+
+            </div>
+          </div>
+          
+        </header>
+    <div id="tipue_search_content">W11 << <a href='W11.html'>Previous</a> <br /><h1>W12</h1>
 <p>task1</p>
 <p>讀取<span> </span><a href="https://drive.google.com/file/d/1HETcW6z9bweibVH37jiziNbT71E8dgVU/view?usp=sharing">stage3_2a.txt</a>, 建立 Stage3 的分組倉儲, 分組網頁, 以及各組員倉儲及網頁連結.</p>
 <p><strong>老師的範例</strong>:</p>
@@ -555,4 +515,54 @@
 <p><a href="https://github.com/40823117/cd2021">40823117 repo</a> | <a href="https://40823117.github.io/cd2021">40823117 site</a></p>
 <p><a href="https://github.com/40823129/cd2021">40823129 repo</a> | <a href="https://40823129.github.io/cd2021">40823129 site</a></p>
 <p><a href="https://github.com/40823149/cd2021">40823149 repo</a> | <a href="https://40823149.github.io/cd2021">40823149 site</a></p>
-<p><a href="https://github.com/40823153/cd2021">40823153 repo</a> | <a href="https://40823153.github.io/cd2021">40823153 site</a></p>
+<p><a href="https://github.com/40823153/cd2021">40823153 repo</a> | <a href="https://40823153.github.io/cd2021">40823153 site</a></p><br />W11 << <a href='W11.html'>Previous</a> </div>
+        
+    <!-- footer -->
+      <div class="container">
+        <div class="row pt-3 mx-auto">
+            <p>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+        </div>
+      </div>
+    <!-- for footer -->
+    
+        </div> <!-- for site wrap -->
+            <!-- <script src="../cmsimde/static/chimper/js/jquery-3.3.1.min.js"></script> -->
+            <script src="../cmsimde/static/chimper/js/jquery-migrate-3.0.1.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery-ui.js"></script>
+            <script src="../cmsimde/static/chimper/js/popper.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/bootstrap.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/owl.carousel.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.stellar.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.countdown.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.magnific-popup.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/bootstrap-datepicker.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/aos.js"></script>
+            <!--
+            <script src="../cmsimde/static/chimper/js/typed.js"></script>
+                    <script>
+                    var typed = new Typed('.typed-words', {
+                    strings: ["Web Apps"," WordPress"," Mobile Apps"],
+                    typeSpeed: 80,
+                    backSpeed: 80,
+                    backDelay: 4000,
+                    startDelay: 1000,
+                    loop: true,
+                    showCursor: true
+                    });
+                    </script>
+            -->
+            <script src="../cmsimde/static/chimper/js/main.js"></script>
+        
+<!-- 啟用 LaTeX equations 編輯 -->
+  <!-- <script>
+  MathJax = {
+    tex: {inlineMath: [['$', '$'], ['\(', '\)']]}
+  };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>-->
+    </body></html>
+        
