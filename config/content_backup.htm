@@ -174,3 +174,386 @@
 <p><img alt="" height="210" src="/images/螢幕擷取畫面 2021-05-12 210610.png" width="300"/></p>
 <p><img alt="" height="191" src="/images/螢幕擷取畫面 2021-05-12 210604.png" width="300"/></p>
 <h2>W12</h2>
+<p>task1</p>
+<p>讀取<span> </span><a href="https://drive.google.com/file/d/1HETcW6z9bweibVH37jiziNbT71E8dgVU/view?usp=sharing">stage3_2a.txt</a>, 建立 Stage3 的分組倉儲, 分組網頁, 以及各組員倉儲及網頁連結.</p>
+<p><strong>老師的範例</strong>:</p>
+<div>
+<div class="syntaxhighlighter py" id="highlighter_408995">
+<table border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td class="gutter">
+<div class="line number1 index0 alt2">1</div>
+<div class="line number2 index1 alt1">2</div>
+<div class="line number3 index2 alt2">3</div>
+<div class="line number4 index3 alt1">4</div>
+<div class="line number5 index4 alt2">5</div>
+<div class="line number6 index5 alt1">6</div>
+<div class="line number7 index6 alt2">7</div>
+<div class="line number8 index7 alt1">8</div>
+<div class="line number9 index8 alt2">9</div>
+<div class="line number10 index9 alt1">10</div>
+<div class="line number11 index10 alt2">11</div>
+</td>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="py comments"># open file, default is read mode, since txt content no chinese char</code></div>
+<div class="line number2 index1 alt1"><code class="py comments"># no encoding = "UTF-8" is needed</code></div>
+<div class="line number3 index2 alt2"><code class="py plain">with </code><code class="py functions">open</code><code class="py plain">(</code><code class="py string">"stage3_2a.txt"</code><code class="py plain">) as fh:</code></div>
+<div class="line number4 index3 alt1"><code class="py spaces"> </code><code class="py comments"># readlines will read into the whole line and put into list format</code></div>
+<div class="line number5 index4 alt2"><code class="py spaces"> </code><code class="py comments"># has \n at the end of each line</code></div>
+<div class="line number6 index5 alt1"><code class="py spaces"> </code><code class="py plain">data </code><code class="py keyword">=</code> <code class="py plain">fh.readlines()</code></div>
+<div class="line number7 index6 alt2"><code class="py comments">#print(len(data))</code></div>
+<div class="line number8 index7 alt1"><code class="py keyword">for</code> <code class="py plain">i </code><code class="py keyword">in</code> <code class="py functions">range</code><code class="py plain">(</code><code class="py functions">len</code><code class="py plain">(data)):</code></div>
+<div class="line number9 index8 alt2"><code class="py spaces"> </code><code class="py plain">group </code><code class="py keyword">=</code> <code class="py plain">data[i].rstrip(</code><code class="py string">"\n"</code><code class="py plain">).split(</code><code class="py string">"\t"</code><code class="py plain">)</code></div>
+<div class="line number10 index9 alt1"><code class="py spaces"> </code><code class="py functions">print</code><code class="py plain">(group)</code></div>
+<div class="line number11 index10 alt2"><code class="py comments"># the following will use group data to generate needed html</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><strong>第一版</strong>:將學號按組別排好</p>
+<div>
+<div class="syntaxhighlighter py" id="highlighter_835462">
+<table border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td class="gutter">
+<div class="line number1 index0 alt2">1</div>
+<div class="line number2 index1 alt1">2</div>
+<div class="line number3 index2 alt2">3</div>
+<div class="line number4 index3 alt1">4</div>
+<div class="line number5 index4 alt2">5</div>
+<div class="line number6 index5 alt1">6</div>
+<div class="line number7 index6 alt2">7</div>
+<div class="line number8 index7 alt1">8</div>
+<div class="line number9 index8 alt2">9</div>
+<div class="line number10 index9 alt1">10</div>
+<div class="line number11 index10 alt2">11</div>
+<div class="line number12 index11 alt1">12</div>
+<div class="line number13 index12 alt2">13</div>
+<div class="line number14 index13 alt1">14</div>
+<div class="line number15 index14 alt2">15</div>
+<div class="line number16 index15 alt1">16</div>
+</td>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="py plain">with </code><code class="py functions">open</code><code class="py plain">(</code><code class="py string">"stage3_2a.txt"</code><code class="py plain">) as fh:</code></div>
+<div class="line number2 index1 alt1"><code class="py spaces"> </code><code class="py comments">#先將我們存起來stage3_2a.txt打開並命名為fh</code></div>
+<div class="line number3 index2 alt2"><code class="py spaces"> </code><code class="py plain">data </code><code class="py keyword">=</code> <code class="py plain">fh.readlines()</code></div>
+<div class="line number4 index3 alt1"><code class="py spaces"> </code><code class="py comments">#將stage3_2a.txt的資料以串列形式存為data</code></div>
+<div class="line number5 index4 alt2"><code class="py keyword">for</code> <code class="py plain">i </code><code class="py keyword">in</code> <code class="py functions">range</code><code class="py plain">(</code><code class="py functions">len</code><code class="py plain">(data)):</code></div>
+<div class="line number6 index5 alt1"><code class="py spaces"> </code><code class="py plain">group </code><code class="py keyword">=</code> <code class="py plain">data[i].rstrip(</code><code class="py string">"\n"</code><code class="py plain">).split(</code><code class="py string">"\t"</code><code class="py plain">)</code></div>
+<div class="line number7 index6 alt2"><code class="py spaces"> </code><code class="py comments">#先取出data list中的第i項,消除元素中/n,再以\t取出需要的文字</code></div>
+<div class="line number8 index7 alt1"><code class="py spaces"> </code><code class="py functions">print</code><code class="py plain">(group[</code><code class="py value">0</code><code class="py plain">]</code><code class="py keyword">+</code><code class="py string">'|'</code><code class="py keyword">+</code><code class="py plain">group[</code><code class="py value">0</code><code class="py plain">])</code></div>
+<div class="line number9 index8 alt2"><code class="py spaces"> </code><code class="py comments">#先將group第0列推出</code></div>
+<div class="line number10 index9 alt1"><code class="py spaces"> </code><code class="py keyword">for</code> <code class="py plain">j </code><code class="py keyword">in</code> <code class="py functions">range</code><code class="py plain">(</code><code class="py value">1</code><code class="py plain">,</code><code class="py value">18</code><code class="py plain">,</code><code class="py value">1</code><code class="py plain">):</code></div>
+<div class="line number11 index10 alt2"><code class="py spaces"> </code><code class="py comments">#設一個範圍,(1到18,每次加1,1&lt;=j&lt;18)</code></div>
+<div class="line number12 index11 alt1"><code class="py spaces"> </code><code class="py keyword">try</code><code class="py plain">:</code></div>
+<div class="line number13 index12 alt2"><code class="py spaces"> </code><code class="py functions">print</code><code class="py plain">(group[j])</code></div>
+<div class="line number14 index13 alt1"><code class="py spaces"> </code><code class="py keyword">except</code><code class="py plain">:</code></div>
+<div class="line number15 index14 alt2"><code class="py spaces"> </code><code class="py keyword">continue</code></div>
+<div class="line number16 index15 alt1"><code class="py spaces"> </code><code class="py comments">#這邊使用try.....except,因為有一組6個人,導致有空格,所以需要用continue讓迴圈繼續跑</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><strong>第二版</strong>:將40823122的學號修正</p>
+<div>
+<div class="syntaxhighlighter py" id="highlighter_236533">
+<table border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td class="gutter">
+<div class="line number1 index0 alt2">1</div>
+<div class="line number2 index1 alt1">2</div>
+<div class="line number3 index2 alt2">3</div>
+<div class="line number4 index3 alt1">4</div>
+<div class="line number5 index4 alt2">5</div>
+<div class="line number6 index5 alt1">6</div>
+<div class="line number7 index6 alt2">7</div>
+<div class="line number8 index7 alt1">8</div>
+<div class="line number9 index8 alt2">9</div>
+<div class="line number10 index9 alt1">10</div>
+<div class="line number11 index10 alt2">11</div>
+<div class="line number12 index11 alt1">12</div>
+<div class="line number13 index12 alt2">13</div>
+<div class="line number14 index13 alt1">14</div>
+<div class="line number15 index14 alt2">15</div>
+<div class="line number16 index15 alt1">16</div>
+<div class="line number17 index16 alt2">17</div>
+<div class="line number18 index17 alt1">18</div>
+</td>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="py plain">with </code><code class="py functions">open</code><code class="py plain">(</code><code class="py string">"stage3_2a.txt"</code><code class="py plain">) as fh:</code></div>
+<div class="line number2 index1 alt1"><code class="py spaces"> </code><code class="py comments">#先將我們存起來stage3_2a.txt打開並命名為fh</code></div>
+<div class="line number3 index2 alt2"><code class="py spaces"> </code><code class="py plain">data </code><code class="py keyword">=</code> <code class="py plain">fh.readlines()</code></div>
+<div class="line number4 index3 alt1"><code class="py spaces"> </code><code class="py comments">#將stage3_2a.txt的資料以串列形式存為data</code></div>
+<div class="line number5 index4 alt2"><code class="py keyword">for</code> <code class="py plain">i </code><code class="py keyword">in</code> <code class="py functions">range</code><code class="py plain">(</code><code class="py functions">len</code><code class="py plain">(data)):</code></div>
+<div class="line number6 index5 alt1"><code class="py spaces"> </code><code class="py plain">newdata </code><code class="py keyword">=</code> <code class="py plain">data[i].replace(</code><code class="py string">'4823122'</code><code class="py plain">,</code><code class="py string">'40823122'</code><code class="py plain">)</code></div>
+<div class="line number7 index6 alt2"><code class="py spaces"> </code><code class="py comments">#因為40823122的學號打錯了,所以用 replace 把舊的替換成新的</code></div>
+<div class="line number8 index7 alt1"><code class="py spaces"> </code><code class="py plain">group </code><code class="py keyword">=</code> <code class="py plain">newdata.rstrip(</code><code class="py string">"\n"</code><code class="py plain">).split(</code><code class="py string">"\t"</code><code class="py plain">)</code></div>
+<div class="line number9 index8 alt2"><code class="py spaces"> </code><code class="py comments">#先取出newdata list中的第i項,消除元素中/n,再以\t取出需要的文字</code></div>
+<div class="line number10 index9 alt1"><code class="py spaces"> </code><code class="py functions">print</code><code class="py plain">(group[</code><code class="py value">0</code><code class="py plain">]</code><code class="py keyword">+</code><code class="py string">'|'</code><code class="py keyword">+</code><code class="py plain">group[</code><code class="py value">0</code><code class="py plain">])</code></div>
+<div class="line number11 index10 alt2"><code class="py spaces"> </code><code class="py comments">#先將group第0列推出</code></div>
+<div class="line number12 index11 alt1"><code class="py spaces"> </code><code class="py keyword">for</code> <code class="py plain">j </code><code class="py keyword">in</code> <code class="py functions">range</code><code class="py plain">(</code><code class="py value">1</code><code class="py plain">,</code><code class="py value">18</code><code class="py plain">,</code><code class="py value">1</code><code class="py plain">):</code></div>
+<div class="line number13 index12 alt2"><code class="py spaces"> </code><code class="py comments">#設一個範圍,(1到18,每次加1,1&lt;=j&lt;18)</code></div>
+<div class="line number14 index13 alt1"><code class="py spaces"> </code><code class="py keyword">try</code><code class="py plain">:</code></div>
+<div class="line number15 index14 alt2"><code class="py spaces"> </code><code class="py functions">print</code><code class="py plain">(group[j])</code></div>
+<div class="line number16 index15 alt1"><code class="py spaces"> </code><code class="py keyword">except</code><code class="py plain">:</code></div>
+<div class="line number17 index16 alt2"><code class="py spaces"> </code><code class="py keyword">continue</code></div>
+<div class="line number18 index17 alt1"><code class="py spaces"> </code><code class="py comments">#這邊使用try.....except,因為有一組6個人,導致有空格,所以需要用continue讓迴圈繼續跑</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><strong>第三版</strong>:以網頁的形式推出,但會告知</p>
+<p>print('&lt;p&gt;'+group[0]+' | &lt;a href="https://'+group[1]+'.github.io/'+group[0]+'"&gt;Website&lt;/a&gt; | &lt;a href="https://github.com/'+group[2]+'/'+group[0]+'"&gt;Repository&lt;/a&gt;&lt;/p&gt;')<br/>IndexError: list index out of range</p>
+<div>
+<div class="syntaxhighlighter py" id="highlighter_835811">
+<table border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td class="gutter">
+<div class="line number1 index0 alt2">1</div>
+<div class="line number2 index1 alt1">2</div>
+<div class="line number3 index2 alt2">3</div>
+<div class="line number4 index3 alt1">4</div>
+<div class="line number5 index4 alt2">5</div>
+<div class="line number6 index5 alt1">6</div>
+<div class="line number7 index6 alt2">7</div>
+<div class="line number8 index7 alt1">8</div>
+<div class="line number9 index8 alt2">9</div>
+<div class="line number10 index9 alt1">10</div>
+<div class="line number11 index10 alt2">11</div>
+<div class="line number12 index11 alt1">12</div>
+<div class="line number13 index12 alt2">13</div>
+<div class="line number14 index13 alt1">14</div>
+<div class="line number15 index14 alt2">15</div>
+<div class="line number16 index15 alt1">16</div>
+<div class="line number17 index16 alt2">17</div>
+</td>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="py plain">with </code><code class="py functions">open</code><code class="py plain">(</code><code class="py string">"stage3_2a.txt"</code><code class="py plain">) as fh:</code></div>
+<div class="line number2 index1 alt1"><code class="py spaces"> </code><code class="py comments">#先將我們存起來stage3_2a.txt打開並命名為fh</code></div>
+<div class="line number3 index2 alt2"><code class="py spaces"> </code><code class="py plain">data </code><code class="py keyword">=</code> <code class="py plain">fh.readlines()</code></div>
+<div class="line number4 index3 alt1"><code class="py spaces"> </code><code class="py comments">#將stage3_2a.txt的資料以串列形式存為data</code></div>
+<div class="line number5 index4 alt2"><code class="py keyword">for</code> <code class="py plain">i </code><code class="py keyword">in</code> <code class="py functions">range</code><code class="py plain">(</code><code class="py functions">len</code><code class="py plain">(data)):</code></div>
+<div class="line number6 index5 alt1"><code class="py spaces"> </code><code class="py plain">newdata </code><code class="py keyword">=</code> <code class="py plain">data[i].replace(</code><code class="py string">'4823122'</code><code class="py plain">,</code><code class="py string">'40823122'</code><code class="py plain">)</code></div>
+<div class="line number7 index6 alt2"><code class="py spaces"> </code><code class="py comments">#因為40823122的學號打錯了,所以用 replace 把舊的替換成新的</code></div>
+<div class="line number8 index7 alt1"><code class="py spaces"> </code><code class="py plain">group </code><code class="py keyword">=</code> <code class="py plain">newdata.rstrip(</code><code class="py string">"\n"</code><code class="py plain">).split(</code><code class="py string">"\t"</code><code class="py plain">)</code></div>
+<div class="line number9 index8 alt2"><code class="py spaces"> </code><code class="py comments">#先取出newdata list中的第i項,消除元素中/n,再以\t取出需要的文字</code></div>
+<div class="line number10 index9 alt1"><code class="py spaces"> </code><code class="py functions">print</code><code class="py plain">(</code><code class="py string">'&lt;p&gt;'</code><code class="py keyword">+</code><code class="py plain">group[</code><code class="py value">0</code><code class="py plain">]</code><code class="py keyword">+</code><code class="py string">' | &lt;a href="https://'</code><code class="py keyword">+</code><code class="py plain">group[</code><code class="py value">1</code><code class="py plain">]</code><code class="py keyword">+</code><code class="py string">'.github.io/'</code><code class="py keyword">+</code><code class="py plain">group[</code><code class="py value">0</code><code class="py plain">]</code><code class="py keyword">+</code><code class="py string">'"&gt;Website&lt;/a&gt; | &lt;a href="https://github.com/'</code><code class="py keyword">+</code><code class="py plain">group[</code><code class="py value">2</code><code class="py plain">]</code><code class="py keyword">+</code><code class="py string">'/'</code><code class="py keyword">+</code><code class="py plain">group[</code><code class="py value">0</code><code class="py plain">]</code><code class="py keyword">+</code><code class="py string">'"&gt;Repository&lt;/a&gt;&lt;/p&gt;'</code><code class="py plain">)</code></div>
+<div class="line number11 index10 alt2"><code class="py spaces"> </code><code class="py keyword">for</code> <code class="py plain">j </code><code class="py keyword">in</code> <code class="py functions">range</code><code class="py plain">(</code><code class="py value">1</code><code class="py plain">,</code><code class="py value">18</code><code class="py plain">,</code><code class="py value">2</code><code class="py plain">):</code></div>
+<div class="line number12 index11 alt1"><code class="py spaces"> </code><code class="py comments">#設一個範圍,(1到18,每次+2,1&lt;=j&lt;18)</code></div>
+<div class="line number13 index12 alt2"><code class="py spaces"> </code><code class="py keyword">try</code><code class="py plain">:</code></div>
+<div class="line number14 index13 alt1"><code class="py spaces"> </code><code class="py functions">print</code><code class="py plain">(</code><code class="py string">'&lt;p&gt;'</code><code class="py keyword">+</code><code class="py plain">group[j]</code><code class="py keyword">+</code><code class="py string">' | Website:'</code><code class="py keyword">+</code><code class="py string">'&lt;a href="https://'</code><code class="py keyword">+</code><code class="py plain">group[j]</code><code class="py keyword">+</code><code class="py string">'.github.io/cd2021'</code><code class="py keyword">+</code><code class="py string">'"&gt;'</code><code class="py keyword">+</code><code class="py plain">group[j]</code><code class="py keyword">+</code><code class="py string">'&lt;/a&gt;'</code><code class="py keyword">+</code><code class="py string">' | Repository:'</code><code class="py keyword">+</code><code class="py string">'&lt;a href="https://github.com/'</code><code class="py keyword">+</code><code class="py plain">group[j]</code><code class="py keyword">+</code><code class="py string">'/cd2021'</code><code class="py keyword">+</code><code class="py string">'"&gt;'</code><code class="py keyword">+</code><code class="py plain">group[j]</code><code class="py keyword">+</code><code class="py string">'&lt;/a&gt; &lt;/p&gt;'</code><code class="py plain">)</code></div>
+<div class="line number15 index14 alt2"><code class="py spaces"> </code><code class="py keyword">except</code><code class="py plain">:</code></div>
+<div class="line number16 index15 alt1"><code class="py spaces"> </code><code class="py keyword">continue</code></div>
+<div class="line number17 index16 alt2"><code class="py spaces"> </code><code class="py comments">#這邊使用try.....except,因為有一組6個人,導致有空格,所以需要用continue讓迴圈繼續跑</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><strong>第四版</strong>:將a40823112和stage3_ag修正</p>
+<div>
+<div class="syntaxhighlighter py" id="highlighter_379513">
+<table border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td class="gutter">
+<div class="line number1 index0 alt2">1</div>
+<div class="line number2 index1 alt1">2</div>
+<div class="line number3 index2 alt2">3</div>
+<div class="line number4 index3 alt1">4</div>
+<div class="line number5 index4 alt2">5</div>
+<div class="line number6 index5 alt1">6</div>
+<div class="line number7 index6 alt2">7</div>
+<div class="line number8 index7 alt1">8</div>
+<div class="line number9 index8 alt2">9</div>
+<div class="line number10 index9 alt1">10</div>
+<div class="line number11 index10 alt2">11</div>
+<div class="line number12 index11 alt1">12</div>
+<div class="line number13 index12 alt2">13</div>
+<div class="line number14 index13 alt1">14</div>
+<div class="line number15 index14 alt2">15</div>
+<div class="line number16 index15 alt1">16</div>
+<div class="line number17 index16 alt2">17</div>
+<div class="line number18 index17 alt1">18</div>
+<div class="line number19 index18 alt2">19</div>
+<div class="line number20 index19 alt1">20</div>
+<div class="line number21 index20 alt2">21</div>
+<div class="line number22 index21 alt1">22</div>
+<div class="line number23 index22 alt2">23</div>
+<div class="line number24 index23 alt1">24</div>
+</td>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="py plain">with </code><code class="py functions">open</code><code class="py plain">(</code><code class="py string">"stage3_2a.txt"</code><code class="py plain">) as fh:</code></div>
+<div class="line number2 index1 alt1"><code class="py spaces"> </code><code class="py comments">#先將我們存起來stage3_2a.txt打開並命名為fh</code></div>
+<div class="line number3 index2 alt2"><code class="py spaces"> </code><code class="py plain">data </code><code class="py keyword">=</code> <code class="py plain">fh.readlines()</code></div>
+<div class="line number4 index3 alt1"><code class="py spaces"> </code><code class="py comments">#將stage3_2a.txt的資料以串列形式存為data</code></div>
+<div class="line number5 index4 alt2"><code class="py keyword">for</code> <code class="py plain">i </code><code class="py keyword">in</code> <code class="py functions">range</code><code class="py plain">(</code><code class="py value">6</code><code class="py plain">):</code></div>
+<div class="line number6 index5 alt1"><code class="py spaces"> </code><code class="py comments">#將次數限定就不會告知list index out of range了</code></div>
+<div class="line number7 index6 alt2"><code class="py spaces"> </code><code class="py plain">newdata1 </code><code class="py keyword">=</code> <code class="py plain">data[i].replace(</code><code class="py string">'4823122'</code><code class="py plain">,</code><code class="py string">'40823122'</code><code class="py plain">)</code></div>
+<div class="line number8 index7 alt1"><code class="py spaces"> </code><code class="py comments">#因為40823122的學號打錯了,所以用 replace 把舊的替換成新的</code></div>
+<div class="line number9 index8 alt2"><code class="py spaces"> </code><code class="py plain">newdata2 </code><code class="py keyword">=</code> <code class="py plain">newdata1.replace(</code><code class="py string">'\t\t'</code><code class="py plain">,'')</code></div>
+<div class="line number10 index9 alt1"><code class="py spaces"> </code><code class="py comments">#因為有一組只有6人,所以用 replace 把空位刪除</code></div>
+<div class="line number11 index10 alt2"><code class="py spaces"> </code><code class="py plain">newdata3 </code><code class="py keyword">=</code> <code class="py plain">newdata2.replace(</code><code class="py string">'_'</code><code class="py plain">,</code><code class="py string">'-'</code><code class="py plain">)</code></div>
+<div class="line number12 index11 alt1"><code class="py spaces"> </code><code class="py comments">#因為在編輯txt的時候-會變成_,所以用 replace 把_修正為-</code></div>
+<div class="line number13 index12 alt2"><code class="py spaces"> </code><code class="py plain">group </code><code class="py keyword">=</code> <code class="py plain">newdata3.rstrip(</code><code class="py string">"\n"</code><code class="py plain">).split(</code><code class="py string">"\t"</code><code class="py plain">)</code></div>
+<div class="line number14 index13 alt1"><code class="py spaces"> </code><code class="py comments">#先取出newdata list中的第i項,消除元素中/n,再以\t取出需要的文字</code></div>
+<div class="line number15 index14 alt2"><code class="py spaces"> </code><code class="py functions">print</code><code class="py plain">(</code><code class="py string">'&lt;p&gt;'</code><code class="py keyword">+</code><code class="py plain">group[</code><code class="py value">0</code><code class="py plain">]</code><code class="py keyword">+</code><code class="py string">' | &lt;a href="https://'</code><code class="py keyword">+</code><code class="py plain">group[</code><code class="py value">1</code><code class="py plain">]</code><code class="py keyword">+</code><code class="py string">'.github.io/'</code><code class="py keyword">+</code><code class="py plain">group[</code><code class="py value">0</code><code class="py plain">]</code><code class="py keyword">+</code><code class="py string">'"&gt;Website&lt;/a&gt; | &lt;a href="https://github.com/'</code><code class="py keyword">+</code><code class="py plain">group[</code><code class="py value">2</code><code class="py plain">]</code><code class="py keyword">+</code><code class="py string">'/'</code><code class="py keyword">+</code><code class="py plain">group[</code><code class="py value">0</code><code class="py plain">]</code><code class="py keyword">+</code><code class="py string">'"&gt;Repository&lt;/a&gt;&lt;/p&gt;'</code><code class="py plain">)</code></div>
+<div class="line number16 index15 alt1"><code class="py spaces"> </code><code class="py keyword">for</code> <code class="py plain">j </code><code class="py keyword">in</code> <code class="py functions">range</code><code class="py plain">(</code><code class="py value">1</code><code class="py plain">,</code><code class="py value">18</code><code class="py plain">,</code><code class="py value">2</code><code class="py plain">):</code></div>
+<div class="line number17 index16 alt2"><code class="py spaces"> </code><code class="py comments">#設一個範圍,(1到18,每次+2,1&lt;=j&lt;18)</code></div>
+<div class="line number18 index17 alt1"><code class="py spaces"> </code><code class="py keyword">try</code><code class="py plain">:</code></div>
+<div class="line number19 index18 alt2"><code class="py spaces"> </code><code class="py plain">n </code><code class="py keyword">=</code> <code class="py plain">group[j].replace(</code><code class="py string">'40823112'</code><code class="py plain">,</code><code class="py string">'a40823112'</code><code class="py plain">)</code></div>
+<div class="line number20 index19 alt1"><code class="py spaces"> </code><code class="py comments">#因為40823112的github帳號是a40823112,所以用 replace 把帳號修正</code></div>
+<div class="line number21 index20 alt2"><code class="py spaces"> </code><code class="py functions">print</code><code class="py plain">(</code><code class="py string">'&lt;p&gt;'</code><code class="py keyword">+</code><code class="py plain">group[j]</code><code class="py keyword">+</code><code class="py string">' | Website:'</code><code class="py keyword">+</code><code class="py string">'&lt;a href="https://'</code><code class="py keyword">+</code><code class="py plain">n</code><code class="py keyword">+</code><code class="py string">'.github.io/cd2021'</code><code class="py keyword">+</code><code class="py string">'"&gt;'</code><code class="py keyword">+</code><code class="py plain">group[j]</code><code class="py keyword">+</code><code class="py string">'&lt;/a&gt;'</code><code class="py keyword">+</code><code class="py string">' | Repository:'</code><code class="py keyword">+</code><code class="py string">'&lt;a href="https://github.com/'</code><code class="py keyword">+</code><code class="py plain">n</code><code class="py keyword">+</code><code class="py string">'/cd2021'</code><code class="py keyword">+</code><code class="py string">'"&gt;'</code><code class="py keyword">+</code><code class="py plain">group[j]</code><code class="py keyword">+</code><code class="py string">'&lt;/a&gt; &lt;/p&gt;'</code><code class="py plain">)</code></div>
+<div class="line number22 index21 alt1"><code class="py spaces"> </code><code class="py keyword">except</code><code class="py plain">:</code></div>
+<div class="line number23 index22 alt2"><code class="py spaces"> </code><code class="py keyword">continue</code></div>
+<div class="line number24 index23 alt1"><code class="py spaces"> </code><code class="py comments">#這邊使用try.....except,因為有一組6個人,導致有空格,所以需要用continue讓迴圈繼續跑</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><strong>第五版</strong>:將連結以老師常用的形式推出</p>
+<div>
+<div class="syntaxhighlighter py" id="highlighter_43678">
+<table border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td class="gutter">
+<div class="line number1 index0 alt2">1</div>
+<div class="line number2 index1 alt1">2</div>
+<div class="line number3 index2 alt2">3</div>
+<div class="line number4 index3 alt1">4</div>
+<div class="line number5 index4 alt2">5</div>
+<div class="line number6 index5 alt1">6</div>
+<div class="line number7 index6 alt2">7</div>
+<div class="line number8 index7 alt1">8</div>
+<div class="line number9 index8 alt2">9</div>
+<div class="line number10 index9 alt1">10</div>
+<div class="line number11 index10 alt2">11</div>
+<div class="line number12 index11 alt1">12</div>
+<div class="line number13 index12 alt2">13</div>
+<div class="line number14 index13 alt1">14</div>
+<div class="line number15 index14 alt2">15</div>
+<div class="line number16 index15 alt1">16</div>
+<div class="line number17 index16 alt2">17</div>
+<div class="line number18 index17 alt1">18</div>
+<div class="line number19 index18 alt2">19</div>
+<div class="line number20 index19 alt1">20</div>
+<div class="line number21 index20 alt2">21</div>
+<div class="line number22 index21 alt1">22</div>
+<div class="line number23 index22 alt2">23</div>
+<div class="line number24 index23 alt1">24</div>
+</td>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="py plain">with </code><code class="py functions">open</code><code class="py plain">(</code><code class="py string">"stage3_2a.txt"</code><code class="py plain">) as fh:</code></div>
+<div class="line number2 index1 alt1"><code class="py spaces"> </code><code class="py comments">#先將我們存起來stage3_2a.txt打開並命名為fh</code></div>
+<div class="line number3 index2 alt2"><code class="py spaces"> </code><code class="py plain">data </code><code class="py keyword">=</code> <code class="py plain">fh.readlines()</code></div>
+<div class="line number4 index3 alt1"><code class="py spaces"> </code><code class="py comments">#將stage3_2a.txt的資料以串列形式存為data</code></div>
+<div class="line number5 index4 alt2"><code class="py keyword">for</code> <code class="py plain">i </code><code class="py keyword">in</code> <code class="py functions">range</code><code class="py plain">(</code><code class="py value">6</code><code class="py plain">):</code></div>
+<div class="line number6 index5 alt1"><code class="py spaces"> </code><code class="py comments">#將次數限定就不會告知list index out of range了</code></div>
+<div class="line number7 index6 alt2"><code class="py spaces"> </code><code class="py plain">newdata1 </code><code class="py keyword">=</code> <code class="py plain">data[i].replace(</code><code class="py string">'4823122'</code><code class="py plain">,</code><code class="py string">'40823122'</code><code class="py plain">)</code></div>
+<div class="line number8 index7 alt1"><code class="py spaces"> </code><code class="py comments">#因為40823122的學號打錯了,所以用 replace 把舊的替換成新的</code></div>
+<div class="line number9 index8 alt2"><code class="py spaces"> </code><code class="py plain">newdata2 </code><code class="py keyword">=</code> <code class="py plain">newdata1.replace(</code><code class="py string">'\t\t'</code><code class="py plain">,'')</code></div>
+<div class="line number10 index9 alt1"><code class="py spaces"> </code><code class="py comments">#因為有一組只有6人,所以用 replace 把空位刪除</code></div>
+<div class="line number11 index10 alt2"><code class="py spaces"> </code><code class="py plain">newdata3 </code><code class="py keyword">=</code> <code class="py plain">newdata2.replace(</code><code class="py string">'_'</code><code class="py plain">,</code><code class="py string">'-'</code><code class="py plain">)</code></div>
+<div class="line number12 index11 alt1"><code class="py spaces"> </code><code class="py comments">#因為在編輯txt的時候-會變成_,所以用 replace 把_修正為-</code></div>
+<div class="line number13 index12 alt2"><code class="py spaces"> </code><code class="py plain">group </code><code class="py keyword">=</code> <code class="py plain">newdata3.rstrip(</code><code class="py string">"\n"</code><code class="py plain">).split(</code><code class="py string">"\t"</code><code class="py plain">)</code></div>
+<div class="line number14 index13 alt1"><code class="py spaces"> </code><code class="py comments">#先取出newdata list中的第i項,消除元素中/n,再以\t取出需要的文字</code></div>
+<div class="line number15 index14 alt2"><code class="py spaces"> </code><code class="py functions">print</code><code class="py plain">(</code><code class="py string">'&lt;p&gt;&lt;a href="https://github.com/'</code><code class="py keyword">+</code><code class="py plain">group[</code><code class="py value">1</code><code class="py plain">]</code><code class="py keyword">+</code><code class="py string">'/'</code><code class="py keyword">+</code><code class="py plain">group[</code><code class="py value">0</code><code class="py plain">]</code><code class="py keyword">+</code><code class="py string">'"&gt;'</code><code class="py keyword">+</code><code class="py plain">group[</code><code class="py value">0</code><code class="py plain">]</code><code class="py keyword">+</code><code class="py string">' repo&lt;/a&gt; | &lt;a href="https://'</code><code class="py keyword">+</code><code class="py plain">group[</code><code class="py value">2</code><code class="py plain">]</code><code class="py keyword">+</code><code class="py string">'.github.io/'</code><code class="py keyword">+</code><code class="py plain">group[</code><code class="py value">0</code><code class="py plain">]</code><code class="py keyword">+</code><code class="py string">'"&gt;'</code><code class="py keyword">+</code><code class="py plain">group[</code><code class="py value">0</code><code class="py plain">]</code><code class="py keyword">+</code><code class="py string">' site&lt;/a&gt;&lt;/p&gt;'</code><code class="py plain">)</code></div>
+<div class="line number16 index15 alt1"><code class="py spaces"> </code><code class="py keyword">for</code> <code class="py plain">j </code><code class="py keyword">in</code> <code class="py functions">range</code><code class="py plain">(</code><code class="py value">1</code><code class="py plain">,</code><code class="py value">18</code><code class="py plain">,</code><code class="py value">2</code><code class="py plain">):</code></div>
+<div class="line number17 index16 alt2"><code class="py spaces"> </code><code class="py comments">#設一個範圍,(1到18,每次+2,1&lt;=j&lt;18)</code></div>
+<div class="line number18 index17 alt1"><code class="py spaces"> </code><code class="py keyword">try</code><code class="py plain">:</code></div>
+<div class="line number19 index18 alt2"><code class="py spaces"> </code><code class="py plain">n </code><code class="py keyword">=</code> <code class="py plain">group[j].replace(</code><code class="py string">'40823112'</code><code class="py plain">,</code><code class="py string">'a40823112'</code><code class="py plain">)</code></div>
+<div class="line number20 index19 alt1"><code class="py spaces"> </code><code class="py comments">#因為40823112的github帳號是a40823112,所以用 replace 把帳號修正</code></div>
+<div class="line number21 index20 alt2"><code class="py spaces"> </code><code class="py functions">print</code><code class="py plain">(</code><code class="py string">'&lt;p&gt;'</code><code class="py keyword">+</code><code class="py string">'&lt;a href="https://github.com/'</code><code class="py keyword">+</code><code class="py plain">n</code><code class="py keyword">+</code><code class="py string">'/cd2021"&gt;'</code><code class="py keyword">+</code><code class="py plain">group[j]</code><code class="py keyword">+</code><code class="py string">' repo&lt;/a&gt; | &lt;a href="https://'</code><code class="py keyword">+</code><code class="py plain">n</code><code class="py keyword">+</code><code class="py string">'.github.io/cd2021"&gt;'</code><code class="py keyword">+</code><code class="py plain">group[j]</code><code class="py keyword">+</code><code class="py string">' site&lt;/a&gt;&lt;/p&gt;'</code><code class="py plain">)</code></div>
+<div class="line number22 index21 alt1"><code class="py spaces"> </code><code class="py keyword">except</code><code class="py plain">:</code></div>
+<div class="line number23 index22 alt2"><code class="py spaces"> </code><code class="py keyword">continue</code></div>
+<div class="line number24 index23 alt1"><code class="py spaces"> </code><code class="py comments">#這邊使用try.....except,因為有一組6個人,導致有空格,所以需要用continue讓迴圈繼續跑</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>參考資料:</p>
+<p><a href="https://docs.python.org/zh-tw/3/tutorial/controlflow.html#the-range-function">python 語法 renge</a></p>
+<p><a href="https://edu.tcfst.org.tw/edm/08C009/images/Python%E5%9F%BA%E6%9C%AC%E8%AA%9E%E6%B3%95.pdf">python 基本語法</a></p>
+<p><a href="https://www.w3schools.com/python/python_lists_loop.asp">python loop 原理</a></p>
+<h4>result</h4>
+<p><a href="https://github.com/40823131/stage3-ag1">stage3-ag1 repo</a> | <a href="https://40823131.github.io/stage3-ag1">stage3-ag1 site</a></p>
+<p><a href="https://github.com/40823131/cd2021">40823131 repo</a> | <a href="https://40823131.github.io/cd2021">40823131 site</a></p>
+<p><a href="https://github.com/a40823112/cd2021">40823112 repo</a> | <a href="https://a40823112.github.io/cd2021">40823112 site</a></p>
+<p><a href="https://github.com/40823123/cd2021">40823123 repo</a> | <a href="https://40823123.github.io/cd2021">40823123 site</a></p>
+<p><a href="https://github.com/40823145/cd2021">40823145 repo</a> | <a href="https://40823145.github.io/cd2021">40823145 site</a></p>
+<p><a href="https://github.com/40823136/cd2021">40823136 repo</a> | <a href="https://40823136.github.io/cd2021">40823136 site</a></p>
+<p><a href="https://github.com/40823109/cd2021">40823109 repo</a> | <a href="https://40823109.github.io/cd2021">40823109 site</a></p>
+<p><a href="https://github.com/40823116/cd2021">40823116 repo</a> | <a href="https://40823116.github.io/cd2021">40823116 site</a></p>
+<p><a href="https://github.com/40823108/cd2021">40823108 repo</a> | <a href="https://40823108.github.io/cd2021">40823108 site</a></p>
+<p><a href="https://github.com/40823151/stage3-ag2">stage3-ag2 repo</a> | <a href="https://40823151.github.io/stage3-ag2">stage3-ag2 site</a></p>
+<p><a href="https://github.com/40823151/cd2021">40823151 repo</a> | <a href="https://40823151.github.io/cd2021">40823151 site</a></p>
+<p><a href="https://github.com/40623121/cd2021">40623121 repo</a> | <a href="https://40623121.github.io/cd2021">40623121 site</a></p>
+<p><a href="https://github.com/40871106/cd2021">40871106 repo</a> | <a href="https://40871106.github.io/cd2021">40871106 site</a></p>
+<p><a href="https://github.com/40823102/cd2021">40823102 repo</a> | <a href="https://40823102.github.io/cd2021">40823102 site</a></p>
+<p><a href="https://github.com/40823104/cd2021">40823104 repo</a> | <a href="https://40823104.github.io/cd2021">40823104 site</a></p>
+<p><a href="https://github.com/40823106/cd2021">40823106 repo</a> | <a href="https://40823106.github.io/cd2021">40823106 site</a></p>
+<p><a href="https://github.com/40823101/cd2021">40823101 repo</a> | <a href="https://40823101.github.io/cd2021">40823101 site</a></p>
+<p><a href="https://github.com/40823132/cd2021">40823132 repo</a> | <a href="https://40823132.github.io/cd2021">40823132 site</a></p>
+<p><a href="https://github.com/40823119/stage3-ag3">stage3-ag3 repo</a> | <a href="https://40823119.github.io/stage3-ag3">stage3-ag3 site</a></p>
+<p><a href="https://github.com/40823119/cd2021">40823119 repo</a> | <a href="https://40823119.github.io/cd2021">40823119 site</a></p>
+<p><a href="https://github.com/40823150/cd2021">40823150 repo</a> | <a href="https://40823150.github.io/cd2021">40823150 site</a></p>
+<p><a href="https://github.com/40823103/cd2021">40823103 repo</a> | <a href="https://40823103.github.io/cd2021">40823103 site</a></p>
+<p><a href="https://github.com/40823107/cd2021">40823107 repo</a> | <a href="https://40823107.github.io/cd2021">40823107 site</a></p>
+<p><a href="https://github.com/40523252/cd2021">40523252 repo</a> | <a href="https://40523252.github.io/cd2021">40523252 site</a></p>
+<p><a href="https://github.com/40823154/cd2021">40823154 repo</a> | <a href="https://40823154.github.io/cd2021">40823154 site</a></p>
+<p><a href="https://github.com/40823142/stage3-ag4">stage3-ag4 repo</a> | <a href="https://40823142.github.io/stage3-ag4">stage3-ag4 site</a></p>
+<p><a href="https://github.com/40823142/cd2021">40823142 repo</a> | <a href="https://40823142.github.io/cd2021">40823142 site</a></p>
+<p><a href="https://github.com/40823144/cd2021">40823144 repo</a> | <a href="https://40823144.github.io/cd2021">40823144 site</a></p>
+<p><a href="https://github.com/40823127/cd2021">40823127 repo</a> | <a href="https://40823127.github.io/cd2021">40823127 site</a></p>
+<p><a href="https://github.com/40823148/cd2021">40823148 repo</a> | <a href="https://40823148.github.io/cd2021">40823148 site</a></p>
+<p><a href="https://github.com/40823121/cd2021">40823121 repo</a> | <a href="https://40823121.github.io/cd2021">40823121 site</a></p>
+<p><a href="https://github.com/40823135/cd2021">40823135 repo</a> | <a href="https://40823135.github.io/cd2021">40823135 site</a></p>
+<p><a href="https://github.com/40823114/cd2021">40823114 repo</a> | <a href="https://40823114.github.io/cd2021">40823114 site</a></p>
+<p><a href="https://github.com/40823146/cd2021">40823146 repo</a> | <a href="https://40823146.github.io/cd2021">40823146 site</a></p>
+<p><a href="https://github.com/40823111/stage3-ag5">stage3-ag5 repo</a> | <a href="https://40823111.github.io/stage3-ag5">stage3-ag5 site</a></p>
+<p><a href="https://github.com/40823111/cd2021">40823111 repo</a> | <a href="https://40823111.github.io/cd2021">40823111 site</a></p>
+<p><a href="https://github.com/40823115/cd2021">40823115 repo</a> | <a href="https://40823115.github.io/cd2021">40823115 site</a></p>
+<p><a href="https://github.com/40823128/cd2021">40823128 repo</a> | <a href="https://40823128.github.io/cd2021">40823128 site</a></p>
+<p><a href="https://github.com/40823120/cd2021">40823120 repo</a> | <a href="https://40823120.github.io/cd2021">40823120 site</a></p>
+<p><a href="https://github.com/40823140/cd2021">40823140 repo</a> | <a href="https://40823140.github.io/cd2021">40823140 site</a></p>
+<p><a href="https://github.com/40823124/cd2021">40823124 repo</a> | <a href="https://40823124.github.io/cd2021">40823124 site</a></p>
+<p><a href="https://github.com/40823139/cd2021">40823139 repo</a> | <a href="https://40823139.github.io/cd2021">40823139 site</a></p>
+<p><a href="https://github.com/40823126/cd2021">40823126 repo</a> | <a href="https://40823126.github.io/cd2021">40823126 site</a></p>
+<p><a href="https://github.com/40823152/stage3-ag6">stage3-ag6 repo</a> | <a href="https://40823152.github.io/stage3-ag6">stage3-ag6 site</a></p>
+<p><a href="https://github.com/40823152/cd2021">40823152 repo</a> | <a href="https://40823152.github.io/cd2021">40823152 site</a></p>
+<p><a href="https://github.com/40823110/cd2021">40823110 repo</a> | <a href="https://40823110.github.io/cd2021">40823110 site</a></p>
+<p><a href="https://github.com/40823122/cd2021">40823122 repo</a> | <a href="https://40823122.github.io/cd2021">40823122 site</a></p>
+<p><a href="https://github.com/40823125/cd2021">40823125 repo</a> | <a href="https://40823125.github.io/cd2021">40823125 site</a></p>
+<p><a href="https://github.com/40823117/cd2021">40823117 repo</a> | <a href="https://40823117.github.io/cd2021">40823117 site</a></p>
+<p><a href="https://github.com/40823129/cd2021">40823129 repo</a> | <a href="https://40823129.github.io/cd2021">40823129 site</a></p>
+<p><a href="https://github.com/40823149/cd2021">40823149 repo</a> | <a href="https://40823149.github.io/cd2021">40823149 site</a></p>
+<p><a href="https://github.com/40823153/cd2021">40823153 repo</a> | <a href="https://40823153.github.io/cd2021">40823153 site</a></p>
+<h2>W13</h2>
