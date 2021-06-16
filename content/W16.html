@@ -134,51 +134,20 @@ img.add_border {
           
         </header>
     <div id="tipue_search_content">W15 << <a href='W15.html'>Previous</a> <a href='coppeliasim.html'>Next</a> >> coppeliasim<br /><h1>W16</h1>
-<p>Onshape 零組件繪製<br/>圖檔連結:<br/><a href="https://cad.onshape.com/documents/ae5e52d15e6f56a88de480bd/w/848109e844fff2142a6b0867/e/70a17173058ad8dac740ea4a" rel="nofollow">https://cad.onshape.com/documents/ae5e52d15e6f56a88de480bd/w/848109e844fff2142a6b0867/e/70a17173058ad8dac740ea4a</a></p>
+<p>完成率90%</p>
+<h4></h4>
+<p>Onshape 零組件繪製(20%)<br/>圖檔連結:<br/><a href="https://cad.onshape.com/documents/ae5e52d15e6f56a88de480bd/w/848109e844fff2142a6b0867/e/70a17173058ad8dac740ea4a" rel="nofollow">https://cad.onshape.com/documents/ae5e52d15e6f56a88de480bd/w/848109e844fff2142a6b0867/e/70a17173058ad8dac740ea4a</a></p>
 <p><img alt="" height="288" src="./../images/螢幕擷取畫面 2021-06-16 163534.png" width="560"/></p>
 <p></p>
-<p>建立 CoppeliaSim 4.1.0 MTB robot 場景<br/> <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/IiIVb0pOiJM" title="YouTube video player" width="560"></iframe></p>
+<p>建立 CoppeliaSim 4.1.0 MTB robot 場景(20%)<br/> <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/IiIVb0pOiJM" title="YouTube video player" width="560"></iframe></p>
+<p><span></span></p>
+<p><span>手臂末端加入 components-gripper-suction pad 吸盤(10%)</span></p>
+<p><span>成功裝上吸盤,也能吸起方塊,但使用鍵盤控制部分失敗</span></p>
+<p><span>(裝上吸盤部分請看上方影片3:18~9:44)</span></p>
+<p><span>(吸起方塊部分請看下方影片)</span></p>
+<h4></h4>
 <p></p>
-<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function moving(x,y)
-    a=0.5
-    b=0.5
-    c=math.pow((math.pow(x,2)+math.pow(y,2)),0.5)
-    s=(a+b+c)/2
-    area=math.pow((s*(s-a)*(s-b)*(s-c)),0.5)
-    h=area/(2*c)
-    deg1_base=math.atan(x/y)
-    if x&lt;0 and y&lt;0 then
-        deg1_base=deg1_base+math.pi
-    end
-    deg1_tri=math.asin(h/a)
-    deg1=deg1_base+deg1_tri
-    deg2=math.pi-(0.5*math.pi-deg1_tri)-math.acos(h/b)
-    deg3=deg2-deg1
-    sim.setJointTargetPosition(joint1,deg1)
-    sim.setJointTargetPosition(joint2,-deg2)
-    sim.setJointTargetPosition(joint3,deg3)
-end
-    
-    
-function sysCall_threadmain()
-    t=3
-    joint1=sim.getObjectHandle('joint1')
-    joint2=sim.getObjectHandle('joint2')
-    joint3=sim.getObjectHandle('joint3')
-    jointa=sim.getObjectHandle('jointa')
-    sim.setJointTargetPosition(joint1,0)
-    sim.setJointTargetPosition(joint2,0)
-    sim.setJointTargetPosition(joint3,0)
-    sim.setJointTargetPosition(jointa,0)
-    sim.wait(t)
-    moving(0.2,0.7)
-    sim.wait(t)
-    moving(-0.3,-0.55)
-    sim.wait(t)  
-
-end</pre>
-<p></p>
-<p>逆向運動學函式<br/> <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/rvIMMPIuRgM" title="YouTube video player" width="560"></iframe></p>
+<p>逆向運動學函式(20%)<br/> <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/rvIMMPIuRgM" title="YouTube video player" width="560"></iframe></p>
 <pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function moving(x,y)
     a=0.5
     b=0.5
@@ -240,7 +209,7 @@ end
 
 end</pre>
 <p><br/><br/></p>
-<p>Python remote API 逆向運動學函式<br/> <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/OhxU7XEoRhM" title="YouTube video player" width="560"></iframe></p>
+<p>Python remote API 逆向運動學函式(20%)<br/> <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/OhxU7XEoRhM" title="YouTube video player" width="560"></iframe></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import sim as vrep
 import math
 import random
