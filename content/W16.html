@@ -133,10 +133,196 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">W8 << <a href='W8.html'>Previous</a> <a href='Stage3.html'>Next</a> >> Stage3<br /><h1>W9</h1>
-<p>上台報告</p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/p5c5icAxclg" title="YouTube video player" width="560"></iframe></p>
-<br />W8 << <a href='W8.html'>Previous</a> <a href='Stage3.html'>Next</a> >> Stage3</div>
+    <div id="tipue_search_content">W15 << <a href='W15.html'>Previous</a> <a href='coppeliasim.html'>Next</a> >> coppeliasim<br /><h1>W16</h1>
+<p>Onshape 零組件繪製<br/>圖檔連結:<br/><a href="https://cad.onshape.com/documents/ae5e52d15e6f56a88de480bd/w/848109e844fff2142a6b0867/e/70a17173058ad8dac740ea4a" rel="nofollow">https://cad.onshape.com/documents/ae5e52d15e6f56a88de480bd/w/848109e844fff2142a6b0867/e/70a17173058ad8dac740ea4a</a></p>
+<p><img alt="" height="288" src="./../images/螢幕擷取畫面 2021-06-16 163534.png" width="560"/></p>
+<p></p>
+<p>建立 CoppeliaSim 4.1.0 MTB robot 場景<br/> <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/IiIVb0pOiJM" title="YouTube video player" width="560"></iframe></p>
+<p></p>
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function moving(x,y)
+    a=0.5
+    b=0.5
+    c=math.pow((math.pow(x,2)+math.pow(y,2)),0.5)
+    s=(a+b+c)/2
+    area=math.pow((s*(s-a)*(s-b)*(s-c)),0.5)
+    h=area/(2*c)
+    deg1_base=math.atan(x/y)
+    if x&lt;0 and y&lt;0 then
+        deg1_base=deg1_base+math.pi
+    end
+    deg1_tri=math.asin(h/a)
+    deg1=deg1_base+deg1_tri
+    deg2=math.pi-(0.5*math.pi-deg1_tri)-math.acos(h/b)
+    deg3=deg2-deg1
+    sim.setJointTargetPosition(joint1,deg1)
+    sim.setJointTargetPosition(joint2,-deg2)
+    sim.setJointTargetPosition(joint3,deg3)
+end
+    
+    
+function sysCall_threadmain()
+    t=3
+    joint1=sim.getObjectHandle('joint1')
+    joint2=sim.getObjectHandle('joint2')
+    joint3=sim.getObjectHandle('joint3')
+    jointa=sim.getObjectHandle('jointa')
+    sim.setJointTargetPosition(joint1,0)
+    sim.setJointTargetPosition(joint2,0)
+    sim.setJointTargetPosition(joint3,0)
+    sim.setJointTargetPosition(jointa,0)
+    sim.wait(t)
+    moving(0.2,0.7)
+    sim.wait(t)
+    moving(-0.3,-0.55)
+    sim.wait(t)  
+
+end</pre>
+<p></p>
+<p>逆向運動學函式<br/> <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/rvIMMPIuRgM" title="YouTube video player" width="560"></iframe></p>
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function moving(x,y)
+    a=0.5
+    b=0.5
+    c=math.pow((math.pow(x,2)+math.pow(y,2)),0.5)
+    s=(a+b+c)/2
+    area=math.pow((s*(s-a)*(s-b)*(s-c)),0.5)
+    h=area/(2*c)
+    deg1_base=math.atan(x/y)
+    if x&lt;0 and y&lt;0 then
+        deg1_base=deg1_base+math.pi
+    end
+    deg1_tri=math.asin(h/a)
+    deg1=deg1_base+deg1_tri
+    deg2=math.pi-(0.5*math.pi-deg1_tri)-math.acos(h/b)
+    deg3=deg2-deg1
+    sim.setJointTargetPosition(AB,deg1)
+    sim.setJointTargetPosition(BC,-deg2)
+    sim.setJointTargetPosition(CD,deg3)
+end
+
+function sysCall_threadmain()
+    t=3
+    AB=sim.getObjectHandle('AB')
+    BC=sim.getObjectHandle('BC')
+    CD=sim.getObjectHandle('CD')
+    Z=sim.getObjectHandle('Z')
+    sim.setJointTargetPosition(AB,0)
+    sim.setJointTargetPosition(BC,0)
+    sim.setJointTargetPosition(CD,0)
+    sim.setJointTargetPosition(Z,0)
+    sim.wait(t)
+    sim.setIntegerSignal("pad_switch",1)
+    sim.setJointTargetPosition(Z,-0.09)
+    sim.wait(t)
+    sim.setJointTargetPosition(Z,0)
+    sim.wait(t)
+    moving(0.2,0.7)
+    sim.wait(t)
+    sim.setIntegerSignal("pad_switch",0)
+    sim.wait(t)
+    sim.setIntegerSignal("pad_switch",1)
+    sim.wait(t)
+    sim.setJointTargetPosition(Z,-0.09)
+    sim.wait(t)
+    sim.setJointTargetPosition(Z,0)
+    sim.wait(t)
+    moving(-0.3,-0.55)
+    sim.wait(t)   
+    sim.setIntegerSignal("pad_switch",0)
+    
+end
+
+
+
+
+
+
+
+
+end</pre>
+<p><br/><br/></p>
+<p>Python remote API 逆向運動學函式<br/> <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/OhxU7XEoRhM" title="YouTube video player" width="560"></iframe></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import sim as vrep
+import math
+import random
+import time
+import math
+
+def moving(x,y):
+       a=0.5
+       b=0.5
+       c=math.pow((math.pow(x,2)+math.pow(y,2)),0.5)
+       s=(a+b+c)/2
+       area=math.pow((s*(s-a)*(s-b)*(s-c)),0.5)
+       h=area/(2*c)
+       deg1_base=math.atan(x/y)
+       if x&lt;0 and y&lt;0 :
+                deg1_base=deg1_base+math.pi
+       deg1_tri=math.asin(h/a)
+       deg1=deg1_base+deg1_tri
+       deg2=math.pi-(0.5*math.pi-deg1_tri)-math.acos(h/b)
+       deg3=deg2-deg1
+       vrep.simxSetJointTargetPosition(clientID,joint1,deg1,opmode)
+       vrep.simxSetJointTargetPosition(clientID,joint2,- deg2,opmode)
+       vrep.simxSetJointTargetPosition(clientID,joint3,deg3,opmode)
+
+
+
+print ('Start')
+ 
+vrep.simxFinish(-1)
+ 
+clientID = vrep.simxStart('127.0.0.1', 19997, True, True, 5000, 5)
+  
+if clientID != -1:
+    print ('Connected to remote API server')
+      
+    res = vrep.simxAddStatusbarMessage(
+        clientID, "This is teach by 40823214 ",
+        vrep.simx_opmode_oneshot)
+    if res not in (vrep.simx_return_ok, vrep.simx_return_novalue_flag):
+        print("Could not add a message to the status bar.")
+  
+     
+    opmode = vrep.simx_opmode_oneshot_wait
+    STREAMING = vrep.simx_opmode_streaming
+  
+     
+    vrep.simxStartSimulation(clientID, opmode)
+    ret,joint1=vrep.simxGetObjectHandle(clientID,"joint1",opmode)
+    ret,joint2=vrep.simxGetObjectHandle(clientID,"joint2",opmode)
+    ret,joint3=vrep.simxGetObjectHandle(clientID,"joint3",opmode)
+    ret,jointa=vrep.simxGetObjectHandle(clientID,"jointa",opmode)
+    
+    vrep.simxSetJointTargetPosition(clientID,joint1,0,opmode)
+    vrep.simxSetJointTargetPosition(clientID,joint2,0,opmode)
+    vrep.simxSetJointTargetPosition(clientID,joint3,0,opmode)
+    vrep.simxSetIntegerSignal(clientID,"pad_switch",1,opmode)
+    vrep.simxSetJointTargetPosition(clientID,jointa,-0.09,opmode)
+    time.sleep(1)
+    vrep.simxSetJointTargetPosition(clientID,jointa,0,opmode)
+    while True:
+        moving(0.2,0.7)
+        time.sleep(1)
+        vrep.simxSetIntegerSignal(clientID,"pad_switch",0,opmode)
+        time.sleep(1)
+        vrep.simxSetIntegerSignal(clientID,"pad_switch",1,opmode)
+        vrep.simxSetJointTargetPosition(clientID,jointa,-0.09,opmode)
+        time.sleep(1)
+        vrep.simxSetJointTargetPosition(clientID,jointa,0,opmode)
+        moving(-0.3,-0.55)
+        time.sleep(1)
+        vrep.simxSetIntegerSignal(clientID,"pad_switch",0,opmode)
+        time.sleep(1)
+        vrep.simxSetIntegerSignal(clientID,"pad_switch",1,opmode)
+        vrep.simxSetJointTargetPosition(clientID,jointa,-0.09,opmode)
+        time.sleep(1)
+        vrep.simxSetJointTargetPosition(clientID,jointa,0,opmode)</pre>
+<p><br/><br/></p>
+<p></p>
+<p>W16_exam雲端連結:<a href="https://drive.google.com/drive/folders/14i25lOYEhOKEAjod-hOsjCfAgfSnolti?usp=sharing" rel="nofollow">https://drive.google.com/drive/folders/14i25lOYEhOKEAjod-hOsjCfAgfSnolti?usp=sharing</a></p>
+<p></p>
+<p>操作心得:</p>
+<p>第一次用Onshap畫圖,發現它可以不用像Inventor和Solidworks一樣特地在零件與零件接觸的地方留空隙,它剛好適合用來繪製<span>CoppeliaSim需要的圖檔,而建立CoppeliaSim 4.1.0 MTB robot場景的時候有許多小細節要注意要調整,如果有一個地方不對了,在跑程式的時候就很容易出問題,要花很多時間除錯,而且常常是找不到問題在哪,再建立一次新場景會是零件少並且趕時間時候的好選擇,lua程式部分果然還是要有個實體對照才能看得懂,也因為CoppeliaSim在模擬時常常出問題,為了找出問題長時間比對自己和其他同學的程式也讓我了解每一行程式的用途,得到不少關於程式的經驗值,謝謝老師和同學們的教學和幫助</span></p><br />W15 << <a href='W15.html'>Previous</a> <a href='coppeliasim.html'>Next</a> >> coppeliasim</div>
         
     <!-- footer -->
       <div class="container">
